@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: #000;
+    color: #fff;
+    overflow-x: hidden;
+    font-feature-settings: "ss01", "ss02", "cv01", "cv02";
+  }
+  
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background-color: #111827;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: #3b82f6;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #2563eb;
+  }
+}
+
+/* Custom animations - Phenomenon inspired */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(-30px) scale(1.02); }
+}
+
+@keyframes glow {
+  0%, 100% { opacity: 0.5; filter: blur(20px); }
+  50% { opacity: 1; filter: blur(30px); }
+}
+
+@keyframes textShine {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+section[id] {
+  scroll-margin-top: 10px !important;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow 4s ease-in-out infinite;
+}
+
+.animate-text-shine {
+  background: linear-gradient(
+    120deg,
+    #fff 0%,
+    #fff 20%,
+    #3b82f6 40%,
+    #8b5cf6 60%,
+    #fff 80%,
+    #fff 100%
+  );
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: textShine 5s linear infinite;
+}
+
+/* Grid overlay */
+.bg-grid-pattern {
+  background-image: 
+    linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
